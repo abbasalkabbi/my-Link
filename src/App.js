@@ -5,8 +5,9 @@ import Layout from "./pages/Layout";
 import Home from './pages/home'
 import NoPage from "./pages/NoPage";
 import Link from "./pages/Link";
-
-
+import Login from "./pages/Login";
+import Context from "./Context";
+import Register from "./pages/Register";
 
 class App extends Component{
     // eslint-disable-next-line no-useless-constructor
@@ -14,16 +15,27 @@ class App extends Component{
         super()
     }
     render(){
+    const url_base='http://localhost/me-link/api/'
+    const url = {
+      Login:`${url_base}Login.php`,
+      register:`${url_base}Register.php`
+      };
         return(
-            <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="*" element={<NoPage />} />
-                <Route path="/:username" element={<Link/>} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
+          <div >
+          <Context.Provider  value={url}>
+                  <BrowserRouter>
+                 <Routes>
+                       <Route path="/" element={<Layout />}>
+                           <Route index element={<Home/>}/>
+                           <Route path="/:username" element={<Link/>}/>
+                           <Route path="*" element={<NoPage/>}/>
+                           <Route path='login' element={<Login/>}/>
+                           <Route path='register' element={<Register/>}/>
+                       </Route>
+                 </Routes>
+                 </BrowserRouter>
+          </Context.Provider>
+      </div>
         )
     }
 }

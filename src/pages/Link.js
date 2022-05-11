@@ -41,7 +41,7 @@ class Link extends Component{
             return data
        }else if(this.state.nouser===true){
            let NoUser=<div class="alert  alert-danger alert-dismissible fade show text-center" role="alert">
-                      No user 
+                      No user
                       </div>
            return NoUser;
        }
