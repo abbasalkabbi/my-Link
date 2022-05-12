@@ -1,9 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from "react";
-import { Component } from "react";
+import { Component, useContext } from "react";
 import { useParams } from "react-router-dom";
 import LinkItem from '../components/LinkItem'
-
+import Context from "../Context";
 class Link extends Component{
     constructor(){
         super()
@@ -20,7 +19,8 @@ class Link extends Component{
 // created method fetch data from api
    componentDidMount(){
     let {username}=this.props.params
-    fetch(`http://localhost/me-link/api/link.php?username=${username}`)
+    let url_link=this.props.usecontext.link
+    fetch(`${url_link}${username}`)
        .then((res)=>res.json())
        .then((json)=>{
            console.log(json)
@@ -65,5 +65,6 @@ export default (props)=>(
     <Link
     {...props}
     params={useParams()}
+    usecontext={useContext(Context)}
     />
 );

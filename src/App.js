@@ -8,6 +8,7 @@ import Link from "./pages/Link";
 import Login from "./pages/Login";
 import Context from "./Context";
 import Register from "./pages/Register";
+import MyProfile from "./pages/MyProfile";
 
 class App extends Component{
     // eslint-disable-next-line no-useless-constructor
@@ -18,7 +19,8 @@ class App extends Component{
     const url_base='http://localhost/me-link/api/'
     const url = {
       Login:`${url_base}Login.php`,
-      register:`${url_base}Register.php`
+      register:`${url_base}Register.php`,
+      link:`${url_base}link.php?username=`
       };
         return(
           <div >
@@ -28,6 +30,7 @@ class App extends Component{
                        <Route path="/" element={<Layout />}>
                            <Route index element={<Home/>}/>
                            <Route path="user/:username" element={<Link/>}/>
+                           <Route path="myprofile" element={<MyProfile/>}/>
                            <Route path="*" element={<NoPage/>}/>
                            <Route path='login' element={<Login/>}/>
                            <Route path='register' element={<Register/>}/>
