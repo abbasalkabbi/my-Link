@@ -26,7 +26,12 @@ function get_links($id_user,$db){
      // get all links
     $links=mysqli_query($db,"SELECT * FROM link WHERE id_user=$id_user");
     $data_links= mysqli_fetch_all($links,MYSQLI_ASSOC);
-    return json_encode($data_links);
+    if($data_links){
+
+        return json_encode($data_links);
+    }else{
+        return json_encode(['status'=>false,"message" => "No Links"]);
+    }
 }
 // login
 function login($email,$password,$conn){

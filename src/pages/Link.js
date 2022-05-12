@@ -10,9 +10,11 @@ class Link extends Component{
         this.state={
              Links:[],
              finished:false,
-             nouser:false,
+            error:false,
+            errormsg:'',
 
         }
+        this.mapping=this.mapping.bind(this)
 
     }
 // created method fetch data from api
@@ -21,14 +23,16 @@ class Link extends Component{
     fetch(`http://localhost/me-link/api/link.php?username=${username}`)
        .then((res)=>res.json())
        .then((json)=>{
-           if(json !=false){
+           console.log(json)
+           if( json.status ==false){
             this.setState({
-                Links:json,
-                finished:true,
+                error:true,
+                errormsg:json.message
             })
            }else{
             this.setState({
-                nouser:true,
+                Links:json,
+                finished:true
             })
            }
        })
@@ -39,11 +43,11 @@ class Link extends Component{
             <LinkItem name={link.name} url={link.url}/>
             )
             return data
-       }else if(this.state.nouser===true){
-           let NoUser=<div class="alert  alert-danger alert-dismissible fade show text-center" role="alert">
-                      No user
+       }else if(this.state.error===true){
+           let error=<div class="alert  alert-danger alert-dismissible fade show text-center" role="alert">
+                   {this.state.errormsg}
                       </div>
-           return NoUser;
+           return error;
        }
     }
     render(){

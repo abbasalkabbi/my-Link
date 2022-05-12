@@ -9,7 +9,7 @@ if($_GET){
     //End get id  user
     if($id ===false){
      //  if user name wrong
-     echo "false";
+     echo json_encode(['status'=>false,"message" => "No user"]);
     }else{
          // get all links
          $get_links= get_links($id,$conn);

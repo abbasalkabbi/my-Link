@@ -27,7 +27,7 @@ class App extends Component{
                  <Routes>
                        <Route path="/" element={<Layout />}>
                            <Route index element={<Home/>}/>
-                           <Route path="/:username" element={<Link/>}/>
+                           <Route path="user/:username" element={<Link/>}/>
                            <Route path="*" element={<NoPage/>}/>
                            <Route path='login' element={<Login/>}/>
                            <Route path='register' element={<Register/>}/>
