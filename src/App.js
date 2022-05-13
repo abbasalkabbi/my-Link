@@ -16,7 +16,7 @@ class App extends Component{
         super()
     }
     render(){
-    const url_base='http://localhost/me-link/api/'
+    const url_base='http://localhost/my-link/api/'
     const url = {
       Login:`${url_base}Login.php`,
       register:`${url_base}Register.php`,
