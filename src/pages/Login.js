@@ -43,8 +43,8 @@ class Login extends Component{
           )
         }else{
         if(this.state.info=='successful'){
-          localStorage.setItem('id',this.state.id)
-          if(localStorage.getItem('id')){
+          sessionStorage.setItem('id',this.state.id)
+          if(sessionStorage.getItem('id')){
             return(
             <Navigate replace to="/" />
             )

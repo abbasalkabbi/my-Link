@@ -2,7 +2,7 @@ import { Outlet,NavLink } from "react-router-dom";
 
 const Layout = () => {
   function logout(){
-    localStorage.removeItem('id');
+    sessionStorage.removeItem('id');
   }
   return (
     <>
@@ -29,17 +29,41 @@ const Layout = () => {
                                    Profile
                                    </a>
                                    <ul class="dropdown-menu text-center " aria-labelledby="navbarDropdown">
-                                       <li>
-                                          <NavLink
-                                               to='myprofile'
-                                               className={({isActive})=>(isActive?'dropdown-item disabled':'dropdown-item  ')}
-                                              >
-                                                My Profile
-                                           </NavLink>
-                                       </li>
-                                       <li>
-                                            <button className="dropdown-item "onClick={() =>{ logout(); window.location.reload()}}>Log Out</button>
-                                       </li>
+                                        {(sessionStorage.getItem('id'))
+                                        ?<>
+                                        <li>
+                                                    <NavLink
+                                                         to='myprofile'
+                                                         className={({ isActive }) => (isActive ? 'dropdown-item disabled' : 'dropdown-item  ')}
+                                                    >
+                                                         My Profile
+                                                    </NavLink>
+                                             </li>
+                                             <li>
+                                                         <button className="dropdown-item " onClick={() => { logout(); window.location.reload(); } }>Log Out</button>
+                                             </li>
+                                        </>
+                                        :
+                                        <>
+                                        <li>
+                                                    <NavLink
+                                                         to='login'
+                                                         className={({ isActive }) => (isActive ? 'dropdown-item disabled' : 'dropdown-item  ')}
+                                                    >
+                                                         Login
+                                                    </NavLink>
+                                             </li>
+                                             <li>
+                                                    <NavLink
+                                                         to='register'
+                                                         className={({ isActive }) => (isActive ? 'dropdown-item disabled' : 'dropdown-item  ')}
+                                                    >
+                                                         Register
+                                                    </NavLink>
+                                             </li>
+                                        </>
+                                        }
+                                       
                                    </ul>
                               </li>
                         </ul>

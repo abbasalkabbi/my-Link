@@ -47,9 +47,8 @@ class Register extends Component{
           )
         }else{
         if(this.state.info=='successful'){
-          localStorage.setItem('id',this.state.id)
-          localStorage.setItem('admin',this.state.admin)
-          if(localStorage.getItem('id')){
+          sessionStorage.setItem('id',this.state.id)
+          if(sessionStorage.getItem('id')){
             return(
             <Navigate replace to="/" />
             )
