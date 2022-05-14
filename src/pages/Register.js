@@ -62,7 +62,7 @@ class Register extends Component{
         return(
             // container
             <div className="container d-flex justify-content-center">
-                 {localStorage.getItem('id')?<Navigate replace to="/" />:''}
+                 {sessionStorage.getItem('id')?<Navigate replace to="/" />:''}
                 {/* From */}
                 <form className="mt-1">
                       {/* Card */}

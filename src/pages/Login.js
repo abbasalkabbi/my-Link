@@ -46,7 +46,10 @@ class Login extends Component{
           sessionStorage.setItem('id',this.state.id)
           if(sessionStorage.getItem('id')){
             return(
-            <Navigate replace to="/" />
+              <>
+              <Navigate replace to="/"  />
+              {window.location.reload()}
+              </>
             )
           }
           }
@@ -56,7 +59,7 @@ render(){
     const {email,password}=this.state
       return(
            <div>
-             {localStorage.getItem('id')?<Navigate replace to="/" />:''}
+             {sessionStorage.getItem('id')?<Navigate replace to="/" />:''}
                  <div className="container d-flex justify-content-center ">
                    {/* Start Form */}
                              <form className="mt-1  ">

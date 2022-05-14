@@ -13,6 +13,7 @@ class Home extends Component{
         return(
             <div>
                 hi
+                {(sessionStorage.getItem('id'))?'r':'f'}
             </div>
         )
     }

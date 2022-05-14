@@ -1,7 +1,9 @@
 const ListItem = (props) => {
+  const name=props.name,
+        id=props.id
 return(<tr>
-  <th scope="row">0</th>
-  <td>Youtube</td>
+  <th scope="row">{id}</th>
+  <td>{name}</td>
 
   <td>
     <button type="submit" class="btn btn-outline-danger" >Delete</button>

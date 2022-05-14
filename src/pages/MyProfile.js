@@ -1,11 +1,17 @@
 import { Component } from "react";
-import ListItem from "../components/ListItem";
 import ListMyLink from "../components/ListMyLink";
+import { Navigate } from "react-router";
 
 class MyProfile extends Component{
+     check_login(){
+       if(!sessionStorage.getItem('id')){
+        return  ( <Navigate replace to="/" />)
+       }
+     }
     render(){
         return(
         <>
+        {this.check_login()}
          <section class="vh-100" >
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
