@@ -1,14 +1,45 @@
-import { Component } from "react";
+/* eslint-disable import/no-anonymous-default-export */
+import { Component,useContext } from "react";
 import ListMyLink from "../components/ListMyLink";
 import { Navigate } from "react-router";
-
+import Context from "../Context";
 class MyProfile extends Component{
+  constructor(){
+    super()
+    this.state={
+            links:[],
+            finished:false,
+            error:false,
+            errormsg:'',
+    }
+  }
      check_login(){
        if(!sessionStorage.getItem('id')){
         return  ( <Navigate replace to="/" />)
        }
      }
+     componentDidMount(){
+      let id=sessionStorage.getItem('id')
+      let url_link=this.props.usecontext.myprofile
+      fetch(`${url_link}${id}`)
+         .then((res)=>res.json())
+         .then((json)=>{
+            //  console.log(json)
+             if( json.status ==false){
+              this.setState({
+                  error:true,
+                  errormsg:json.message
+              })
+             }else{
+              this.setState({
+                  links:json,
+                  finished:true
+              })
+             }
+         })
+     }
     render(){
+      let {links,finished}=this.state
         return(
         <>
         {this.check_login()}
@@ -22,7 +53,12 @@ class MyProfile extends Component{
                  <div class="d-grid gap-2 col-6 mx-auto">
                        <a href="aa"  class="btn btn-outline-dark ms-1" >Add Link</a>
                    </div>
-                 <ListMyLink/>
+                   {
+                     (finished)
+                     ? <ListMyLink  links={links}/>
+                     :'Wait'
+                   }
+                
           </div>
         </div>
       </div>
@@ -33,4 +69,9 @@ class MyProfile extends Component{
         )
     }
 }
-export default MyProfile;
+export default (props)=>(
+  <MyProfile
+  {...props}
+  usecontext={useContext(Context)}
+  />
+);

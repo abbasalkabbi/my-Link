@@ -20,7 +20,8 @@ class App extends Component{
     const url = {
       Login:`${url_base}Login.php`,
       register:`${url_base}Register.php`,
-      link:`${url_base}link.php?username=`
+      link:`${url_base}link.php?username=`,
+      myprofile:`${url_base}MyProfile.php?id=`,
       };
         return(
           <div >
