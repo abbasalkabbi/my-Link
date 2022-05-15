@@ -22,6 +22,7 @@ class App extends Component{
       register:`${url_base}Register.php`,
       link:`${url_base}link.php?username=`,
       myprofile:`${url_base}MyProfile.php?id=`,
+      delete:`${url_base}Delete.php?id=`,
       };
         return(
           <div >

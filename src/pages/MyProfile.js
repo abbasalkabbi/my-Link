@@ -58,7 +58,6 @@ class MyProfile extends Component{
                      ? <ListMyLink  links={links}/>
                      :'Wait'
                    }
-                
           </div>
         </div>
       </div>

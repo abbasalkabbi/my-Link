@@ -108,4 +108,13 @@ function register($name,$username,$email,$password,$conn){
      }
 }
 // End register
+//Delete links
+function delete_link ($id,$id_user,$db){
+    $delete=mysqli_query($db,"DELETE FROM link WHERE id= $id AND id_user=$id_user");
+    if($delete){
+        echo json_encode(['status'=>true,"message" => "Delete"]);
+    }else{
+        echo json_encode(['status'=>false,"message" => "Someting Wrong"]);
+    }
+}
 ?>

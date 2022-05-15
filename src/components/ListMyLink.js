@@ -5,7 +5,7 @@ const ListMyLink = (props) => {
       console.log(links)
   function mapping(){
     let count=0;
-    let data=links.map(link=> <ListItem name={link.name} id={count=+1}/>)
+    let data=links.map(link=> <ListItem name={link.name} id={link.id} count={count=+1}/>)
     console.log(count)
     return data
   }
