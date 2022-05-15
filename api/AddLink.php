@@ -6,7 +6,12 @@ if ($_POST){
     $name=$_POST['name'];
     $url=$_POST['url'];
     $id_user=$_POST['id_user'];
-    add_link($name,$url,$id_user,$conn);
+    if(!empty($name) && !empty($url)){
+        add_link($name,$url,$id_user,$conn);
+    }else{
+        echo json_encode(['status'=>false,"message" => "Input is Empty"]);
+    }
+    
     
 }
 ?>

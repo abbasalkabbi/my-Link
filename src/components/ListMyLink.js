@@ -2,11 +2,9 @@ import ListItem from "./ListItem";
 
 const ListMyLink = (props) => {
   const  links=props.links
-      console.log(links)
   function mapping(){
     let count=0;
-    let data=links.map(link=> <ListItem name={link.name} id={link.id} count={count=+1}/>)
-    console.log(count)
+    let data=links.map(link=> <ListItem name={link.name} id={link.id} count={  count=count+1}/>)//End map
     return data
   }
       return(

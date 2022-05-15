@@ -79,8 +79,9 @@ render(){
                                </div>
                             {/* End url */}
                             {/* Add Button */}
-                            <div class="text-center text-lg-start mt-4 pt-2">
-                                <button type="submit" onClick={e => this.AddLink(e)} className="btn btn-primary">Add</button>
+                            <div class="d-flex  justify-content-around text-lg-start mt-4 pt-2">
+                                <button type="submit" onClick={e => this.AddLink(e)} className="btn btn-outline-primary">Add</button>
+                                <a href="/myprofile"  className="btn btn-outline-dark">Back</a>
                             </div>
                                          {/* END Add Button */}
                   </div>
