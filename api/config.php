@@ -129,4 +129,22 @@ function add_link($name,$url,$id_user,$db){
     echo json_encode(['status'=>false,"message" => "Not Added"]);
  }
 }
+function edit_link($id,$name,$url,$db){
+    $update_link=mysqli_query($db,"UPDATE link   SET name='$name',url='$url' WHERE id=$id");
+    if($update_link){
+        echo json_encode(['status'=>true,"message" => "UPDATE"]);
+    }else{
+        echo json_encode(['status'=>false,"message" => "Not UPDATE"]);
+    }
+}
+function get_link($id,$db){
+// get all links
+$link=mysqli_query($db,"SELECT * FROM link WHERE id=$id");
+$data_link= mysqli_fetch_all($link,MYSQLI_ASSOC);
+if($data_link){
+    return json_encode($data_link);
+}else{
+    return json_encode(['status'=>false,"message" => "No Links"]);
+}
+}
 ?>

@@ -20,7 +20,7 @@ return(<tr>
 
   <td>
     <button  class="btn btn-outline-danger"  onClick={()=>delete_link(id)} >Delete</button>
-    <a href="s"  class="btn btn-outline-success ms-1" >Edit</a>
+    <a href={'/editlink/'+id}  class="btn btn-outline-success ms-1" >Edit</a>
   </td>
 </tr>
   )
