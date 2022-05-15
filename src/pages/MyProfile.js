@@ -56,7 +56,7 @@ class MyProfile extends Component{
                    {
                      (finished)
                      ? <ListMyLink  links={links}/>
-                     :'Wait'
+                     :'No Links'
                    }
           </div>
         </div>
