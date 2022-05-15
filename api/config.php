@@ -7,32 +7,8 @@ $conn= mysqli_connect($host,$username,$pass,$db);
 if(!$conn){
     echo "Error". mysqli_connect_error();
 }
-function get_user_id($user,$db){
-    //get id  user from username
-    $get_user=mysqli_query($db,"SELECT * FROM users WHERE username='$user'");
-    if(mysqli_num_rows($get_user)){
-        // if loggin
-     while($obj = mysqli_fetch_object($get_user)){
-         $id= $obj -> id; //hendle Unique_id
-     }
-     return $id;
-    }else{
-        return false;
-    }
 
-}
-// get links
-function get_links($id_user,$db){
-     // get all links
-    $links=mysqli_query($db,"SELECT * FROM link WHERE id_user=$id_user");
-    $data_links= mysqli_fetch_all($links,MYSQLI_ASSOC);
-    if($data_links){
 
-        return json_encode($data_links);
-    }else{
-        return json_encode(['status'=>false,"message" => "No Links"]);
-    }
-}
 // login
 function login($email,$password,$conn){
     if(!empty($email) && !empty($password)){
@@ -107,14 +83,50 @@ function register($name,$username,$email,$password,$conn){
          echo json_encode(["status" => false, "message" => "Input is Empty"]);
      }
 }
-// End register
+// End
+// get_user_id
+function get_user_id($user,$db){
+    //get id  user from username
+    $get_user=mysqli_query($db,"SELECT * FROM users WHERE username='$user'");
+    if(mysqli_num_rows($get_user)){
+        // if loggin
+     while($obj = mysqli_fetch_object($get_user)){
+         $id= $obj -> id; //hendle Unique_id
+     }
+     return $id;
+    }else{
+        return false;
+    }
+
+}
+// get links
+function get_links($id_user,$db){
+    // get all links
+   $links=mysqli_query($db,"SELECT * FROM link WHERE id_user=$id_user");
+   $data_links= mysqli_fetch_all($links,MYSQLI_ASSOC);
+   if($data_links){
+
+       return json_encode($data_links);
+   }else{
+       return json_encode(['status'=>false,"message" => "No Links"]);
+   }
+}
 //Delete links
-function delete_link ($id,$id_user,$db){
-    $delete=mysqli_query($db,"DELETE FROM link WHERE id= $id AND id_user=$id_user");
+function delete_link ($id,$db){
+    $delete=mysqli_query($db,"DELETE FROM link WHERE id= $id ");
     if($delete){
         echo json_encode(['status'=>true,"message" => "Delete"]);
     }else{
         echo json_encode(['status'=>false,"message" => "Someting Wrong"]);
     }
+}
+// add link
+function add_link($name,$url,$id_user,$db){
+ $add=mysqli_query($db,"INSERT INTO link (name,url,id_user) VALUES('$name','$url',$id_user)");
+ if($add){
+    echo json_encode(['status'=>true,"message" => "Added"]);
+ }else{
+    echo json_encode(['status'=>false,"message" => "Not Added"]);
+ }
 }
 ?>

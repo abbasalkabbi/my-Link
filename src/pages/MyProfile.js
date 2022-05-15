@@ -51,7 +51,7 @@ class MyProfile extends Component{
           <div class="card-body p-4">
             <h4 class="text-center my-3 pb-3">My Links</h4>
                  <div class="d-grid gap-2 col-6 mx-auto">
-                       <a href="aa"  class="btn btn-outline-dark ms-1" >Add Link</a>
+                       <a href="/addlink"  class="btn btn-outline-dark ms-1" >Add Link</a>
                    </div>
                    {
                      (finished)

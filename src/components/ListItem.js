@@ -7,7 +7,7 @@ const ListItem = (props) => {
         id=props.id,
         count=props.count
         function delete_link(id_link){
-           fetch(`${url_delete}${id_link}&id_user=${sessionStorage.getItem('id')}`)
+           fetch(`${url_delete}${id_link}`)
            .then((res)=>res.json())
            .then((json)=>{
              console.log(json)
@@ -19,7 +19,7 @@ return(<tr>
 
   <td>
     <button type="submit" class="btn btn-outline-danger"  onClick={delete_link(id)}>Delete</button>
-    <a href="aa"  class="btn btn-outline-success ms-1" >Edit</a>
+    <a href="s"  class="btn btn-outline-success ms-1" >Edit</a>
   </td>
 </tr>
   )

@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Context from "./Context";
 import Register from "./pages/Register";
 import MyProfile from "./pages/MyProfile";
+import AddLink from "./pages/AddLink";
 
 class App extends Component{
     // eslint-disable-next-line no-useless-constructor
@@ -23,6 +24,7 @@ class App extends Component{
       link:`${url_base}link.php?username=`,
       myprofile:`${url_base}MyProfile.php?id=`,
       delete:`${url_base}Delete.php?id=`,
+      addlink:`${url_base}AddLink.php`,
       };
         return(
           <div >
@@ -33,6 +35,7 @@ class App extends Component{
                            <Route index element={<Home/>}/>
                            <Route path="user/:username" element={<Link/>}/>
                            <Route path="myprofile" element={<MyProfile/>}/>
+                           <Route path="addlink" element={<AddLink/>}/>
                            <Route path="*" element={<NoPage/>}/>
                            <Route path='login' element={<Login/>}/>
                            <Route path='register' element={<Register/>}/>
