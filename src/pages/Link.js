@@ -54,9 +54,12 @@ class Link extends Component{
         const {username}=this.props.params
         return(
             <div className="container">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    {this.mapping()}
-                </div>
+                
+                     <div class="d-grid gap-2 mt-4">
+                         {this.mapping()}
+                     </div>
+                
+                
             </div>
         )
     }
