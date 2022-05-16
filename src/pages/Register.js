@@ -50,7 +50,11 @@ class Register extends Component{
           sessionStorage.setItem('id',this.state.id)
           if(sessionStorage.getItem('id')){
             return(
-            <Navigate replace to="/" />
+                <>
+                    <Navigate replace to="/" />
+                    {window.location.reload()}
+                </>
+        
             )
           }
           }
