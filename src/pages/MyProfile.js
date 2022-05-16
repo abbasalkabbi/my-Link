@@ -38,6 +38,12 @@ class MyProfile extends Component{
              }
          })
      }
+     copy() {
+      let url_copy=`${window.location.origin}/user/${sessionStorage.getItem('username')}`;
+      navigator.clipboard.writeText(url_copy);
+      alert('Copy your links Profile')
+
+    }
     render(){
       let {links,finished}=this.state
         return(
@@ -50,8 +56,9 @@ class MyProfile extends Component{
         <div class="card rounded-3">
           <div class="card-body p-4">
             <h4 class="text-center my-3 pb-3">My Links</h4>
-                 <div class="d-grid gap-2 col-6 mx-auto">
-                       <a href="/addlink"  class="btn btn-outline-dark ms-1" >Add Link</a>
+                 <div class="d-flex  justify-content-around text-lg-start mt-4 pt-2">
+                       <a href="/addlink"  className="btn btn-outline-dark ms-1" >Add Link</a>
+                       <button className="btn btn-outline-dark ms-1" onClick={()=>this.copy()}>Share My Links</button>
                    </div>
                    {
                      (finished)

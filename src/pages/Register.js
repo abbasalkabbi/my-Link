@@ -36,6 +36,7 @@ class Register extends Component{
                 info: result.data.message,
                 status:result.data.status,
                 id:result.data.id,
+                username:result.data.username,
             }) )
       }
       error(){
@@ -48,6 +49,7 @@ class Register extends Component{
         }else{
         if(this.state.info=='successful'){
           sessionStorage.setItem('id',this.state.id)
+          sessionStorage.setItem('username',this.state.username)
           if(sessionStorage.getItem('id')){
             return(
                 <>

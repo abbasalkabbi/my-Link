@@ -24,10 +24,11 @@ function login($email,$password,$conn){
                        // if loggin
                     while($obj = mysqli_fetch_object($login)){
                         $id= $obj -> id; //hendle Unique_id
+                        $username= $obj -> username; //hendle Unique_id
                     }
                     $_SESSION['id']=$id;
                     if($_SESSION['id']){
-                        echo json_encode(['status'=>true,"message" => "successful","id"=>$_SESSION['id']]);
+                        echo json_encode(['status'=>true,"message" => "successful","id"=>$_SESSION['id'],'username'=>$username]);
                     }
                  //End get seesion
                    }else{
