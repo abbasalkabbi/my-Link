@@ -41,8 +41,7 @@ CREATE TABLE `link` (
 INSERT INTO `link` (`id`, `name`, `url`, `id_user`) VALUES
 (1, 'facebook', 'www.fb.com', 1),
 (2, 'Github', 'https://github.com/abbasalkabbi', 1),
-(3, 'Youtube', 'https://www.youtube.com/channel/UCSzZZJFgwathc5Qp1w-c8uQ', 1),
-;
+(3, 'Youtube', 'https://www.youtube.com/channel/UCSzZZJFgwathc5Qp1w-c8uQ', 1);
 
 -- --------------------------------------------------------
 
@@ -63,7 +62,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`) VALUES
-(1, 'abbas', 'Abbas Alkaabi', 'abbas@abbas.com', 'abbas2003'),;
+(1, 'abbas', 'Abbas Alkaabi', 'abbas@abbas.com', 'abbas2003');
 
 --
 -- Indexes for dumped tables
