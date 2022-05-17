@@ -1,9 +1,33 @@
 # About
 ### My Link allows you to create a personalized and easily customizable page, that houses all the important links you want to share with your audience. It can be used on social platforms like Instagram, TikTok, Twitch, Facebook, YouTube, Twitter, or LinkedIn, or you can use it to aid discovery of your work, brand, or business.
- 
-<a href="https://github.com/anuraghazra/github-readme-stats">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=abbasalkabbi&repo=my-Link" />
-</a>
+ # Built With
+ * [React.js](https://reactjs.org/)
+ * [Bootstrap](https://getbootstrap.com)
+ * [Php](https://www.php.net/)
+ * [mysqli]()
+
+<!-- GETTING STARTED -->
+## Getting Started
+1. Clone the repo
+   ```sh
+   git clone https://github.com/abbasalkabbi/my-Link.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Enter your url in `App.js`
+   ```js
+   const url_base = 'ENTER YOUR url_base';
+   ```
+4. Create db in Mysqli have name links
+5. import db from links.sql
+6. Run 
+   ```sh
+   npm start
+   ```
+   
+  
 # Home
 ![Web capture_18-5-2022_1125_localhost](https://user-images.githubusercontent.com/75854041/168919818-0c09540f-e3c5-4003-a487-540b25fe4202.jpeg)
 
