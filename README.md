@@ -1,5 +1,5 @@
-# my-Link
-my-link is a freemium social media reference landing page developed by abbas, 
+# About
+### My Link allows you to create a personalized and easily customizable page, that houses all the important links you want to share with your audience. It can be used on social platforms like Instagram, TikTok, Twitch, Facebook, YouTube, Twitter, or LinkedIn, or you can use it to aid discovery of your work, brand, or business.
 
 # Home
 ![Web capture_18-5-2022_1125_localhost](https://user-images.githubusercontent.com/75854041/168919818-0c09540f-e3c5-4003-a487-540b25fe4202.jpeg)
